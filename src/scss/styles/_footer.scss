@@ -1,0 +1,76 @@
+@use '../tools/mixins' as *;
+
+.arkimon__footer {
+    width: 100%;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        padding-top: 5rem;
+
+        &_top {
+            width: 100%;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            justify-content: start;
+            align-items: start;
+            column-gap: 5rem;
+
+            > ul {
+                > li {
+                    font-size: 15px;
+                    line-height: 266.5%;
+                    letter-spacing: 0.02em;
+                    color: var(--gray2-clr);
+                    cursor: pointer;
+
+                    > h1 {
+                        font-size: 18px;
+                        line-height: 147%;
+                        letter-spacing: 0.02em;
+                        color: #000000;
+                        padding-bottom: 2rem;
+                    }
+
+                    > input[type="text"], > input[type="button"] {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        border-radius: 2px;
+                        font-size: 1.6rem;
+                        padding: .5rem;
+                    }
+
+                    > input[type="text"] {
+                        outline: none;
+                        box-shadow: 8px 8px 17px rgba(0, 0, 0, 0.05);
+                    }
+
+                    > input[type="button"] {
+                        background: var(--accent-clr);
+                        line-height: 146.5%;
+                        letter-spacing: 0.02em;
+                        color: #fff;
+                    }
+                }
+            }
+
+            @include mediaQuery(37.5rem) {
+                & {
+                    grid-template-columns: repeat(1, 1fr);
+                    column-gap: 0;
+                    row-gap: 5rem;
+                }
+            }
+        }
+
+        &_split {
+            width: 100vw;
+            height: .1rem;
+            background-color: var(--gray1-clr);
+        }
+    }
+}

@@ -1,0 +1,109 @@
+@use '../tools/mixins' as *;
+
+.arkimon__experience {
+    width: 100%;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10rem;
+
+        &_title {
+            width: 100%;
+
+            position: relative;
+
+            display: flex;
+            gap: 3rem;
+
+            > .dash {
+                width: 20%;
+                height: .5rem;
+                background-color: var(--accent-clr);
+            }
+
+            > h1 {
+                font-size: 40px;
+                line-height: 116.5%;
+                letter-spacing: 0.02em;
+                color: var(--black-clr);
+            }
+
+            > .buble2, > .buble1 {
+                position: absolute;
+                background-color: var(--accent-clr);
+                border-radius: 50%;
+            }
+
+            > .buble1 {
+                width: 23.8rem;
+                height: 23.8rem;
+
+                top: 0;
+                left: 100%;
+            }
+
+            > .buble2 {
+                width: 9.4rem;
+                height: 9.4rem;
+
+                top: 100%;
+                left: 50%;
+
+                opacity: .1;
+            }
+        }
+
+        &_elements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 3rem;
+            place-items: center;
+
+            &-element {
+                width: 100%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 1rem;
+
+                transform: translateY(0);
+                transition: .5s transform ease;
+
+                > h2 {
+                    font-size: 24px;
+                    line-height: 138.5%;
+                    letter-spacing: 0.02em;
+                    color: var(--black-clr);
+                }
+
+                > p {
+                    font-size: 18px;
+                    line-height: 147%;
+                    letter-spacing: 0.02em;
+                    color: var(--gray2-clr);
+                }
+
+                &:hover {
+                    transform: translateY(-5rem);
+                }
+
+                @include mediaQuery(37.5rem) {
+                    &:hover {
+                        transform: translateY(-2rem);
+                    }
+                }
+            }
+
+            @include mediaQuery(37.5rem) {
+                & {
+                    grid-template-columns: repeat(1, 1fr);
+                    column-gap: 0;
+                    row-gap: 3rem;
+                }
+            }
+        }
+    }
+}

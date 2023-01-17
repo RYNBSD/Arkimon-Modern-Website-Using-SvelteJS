@@ -1,0 +1,78 @@
+@use '../tools/mixins' as *;
+
+.arkimon__testimonial {
+    width: 100%;
+
+    &-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: end;
+
+        padding: 10rem 0;
+
+        column-gap: 5rem;
+
+        &_left {
+            width: 100%;
+            > img {
+                width: 100%;
+            }
+        }
+
+        &_right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 5rem;
+
+            &-arrows {
+                display: flex;
+                gap: 3rem;
+            }
+
+            > h1 {
+                font-size: 28px;
+                line-height: 134.5%;
+                letter-spacing: 0.02em;
+                color: var(--black-clr);
+            }
+
+            &-author {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                &_name {
+                    display: flex;
+
+                    gap: 1rem;
+
+                    > h3 {
+                        font-size: 24px;
+                        line-height: 138.5%;
+                        letter-spacing: 0.02em;
+                        color: var(--accent-clr);
+                    }
+                }
+
+                &_skills {
+                    > small {
+                        font-size: 15px;
+                        line-height: 146.5%;
+                        letter-spacing: 0.02em;
+                        color: var(--gray2-clr);
+                    }
+                }
+            }
+        }
+
+        @include mediaQuery(37.5rem) {
+            & {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 5rem;
+            }
+        }
+    }
+}

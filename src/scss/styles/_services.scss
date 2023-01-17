@@ -1,0 +1,93 @@
+@use '../tools/mixins' as *;
+
+.arkimon__services {
+    width: 100%;
+
+    &-container {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr .75fr;
+
+        justify-content: end;
+        align-items: end;
+        column-gap: 5rem;
+    
+        &_left {
+            width: 100%;
+
+            > img {
+                width: 100%;
+            }
+        }
+
+        &_right {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start !important;
+
+            gap: 3rem;
+
+            > h1 {
+                font-size: 4rem;
+                line-height: 116.5%;
+                letter-spacing: 0.02em;
+                color: var(--black-clr);
+            }
+
+            &-elements {
+                width: 100%;
+
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+                column-gap: 2rem;
+                row-gap: 2rem;
+                
+                @include mediaQuery(80rem) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                
+                @include mediaQuery(37.5rem) {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+
+                &_element {
+                    width: 100%;
+
+                    display: flex;
+                    justify-content: flex-start !important;
+                    
+                    gap: 1rem;
+
+                    &-index, &-content  {
+                        > h2 {
+                            font-size: 28px;
+                            line-height: 134.5%;
+                            letter-spacing: 0.02em;
+                            color: var(--black-clr);
+                        }
+                    }
+
+                    &-content {
+                        > h2 {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mediaQuery(37.5rem) {
+            & {
+                grid-template-columns: 1fr;
+                justify-content: end;
+                align-items: end;
+                column-gap: 0;
+                row-gap: 5rem;
+            }
+        }
+    }
+}

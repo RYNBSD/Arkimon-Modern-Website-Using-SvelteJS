@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+* {
+  &, &::before, &::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+  }
+}
+
+:root {
+  --white-clr: #ffffff;
+  --black-clr: #4E4E4E;
+  --accent-clr: #FDAE54;
+
+  // Gray
+  --gray1-clr: #9B9B9B;
+  --gray2-clr: #818181;
+
+  // Screens
+  --small-screen: 37.5rem;
+  --medium-screen: 80rem;
+
+}
+$smallScreen: 37.5rem;
+$mediumScreen: 80rem;
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.f-center {
+  justify-content: center;
+  align-items: center;
+}
+
+@import './scss/tools/mixins';
+@import './scss/styles/index';

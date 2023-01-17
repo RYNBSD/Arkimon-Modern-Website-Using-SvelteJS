@@ -1,0 +1,149 @@
+@use '../tools/mixins' as *;
+
+.arkimon__faq {
+    width: 100%;
+    background-color: #f1f1f1;
+
+    &-container {
+        width: 100%;
+        height: inherit;
+        
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+
+        align-items: end;
+        justify-content: end;
+
+        padding: 10rem 0 0;
+
+        &_left {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 5rem;
+
+            &-elements {
+                width: 70%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 5rem;
+
+                &_element {
+                    width: 100%;
+                    height: 6.2rem;
+
+                    overflow-y: hidden;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 3rem;
+
+                    background-color: #fff;
+                    padding: 2rem;
+
+                    transition: .5s height ease;
+
+                    &-title {
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: space-between !important;
+                        
+                        > h2 {
+                            font-size: 15px;
+                            line-height: 146.5%;
+                            letter-spacing: 0.02em;
+                            color: #000;
+                        }
+                    }
+
+                    &-content {
+                        opacity: 0;
+                        transform: translateX(-3rem);
+
+                        transition: .5s all ease;
+
+                        > p {
+                            font-size: 13px;
+                            line-height: 150%;
+                            color: var(--gary2-clr);
+                        }
+                    }
+
+                    &:hover {
+                        height: 15rem;
+
+                        @include mediaQuery(37.5rem) {
+                            & {
+                                height: 20rem;
+                            }
+                        }
+
+                        .arkimon__faq-container_left-elements_element-content {
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+                    }
+                }
+            }
+
+            &-btn {
+                width: 70%;
+
+                display: flex;
+                justify-content: flex-start;
+
+                > button {
+                    display: flex;
+    
+                    background: #414141;
+                    color: #FFFFFF;
+                    border-radius: 2px;
+    
+                    align-items: flex-start;
+                    padding: 15.5px 30px;
+                    gap: .9rem;
+    
+                    letter-spacing: 0.02em;
+                    font-size: 15px;
+                    line-height: 146.5%;
+
+                    > svg {
+                        transform: translateX(0);
+                        transition:.5s transform ease;
+                    }
+
+                    &:hover {
+                        > svg {
+                            transform: translateX(1rem);
+                        }
+                    }
+                }
+            }
+        }
+
+        &_right {
+            width: 100%;
+
+            > img {
+                width: 100%;
+            }
+        }
+
+        @include mediaQuery(37.5rem) {
+            & {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 5rem;
+            }
+        }
+    }
+}

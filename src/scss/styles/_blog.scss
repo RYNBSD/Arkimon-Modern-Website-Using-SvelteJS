@@ -1,0 +1,149 @@
+@use '../tools/mixins' as *;
+
+.arkimon__blog {
+    width: 100%;
+
+    &-container {
+        width: 80%;
+        margin: 0 auto;
+
+        padding: 10rem 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        &_top {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between !important;
+
+            > h1 {
+                width: 50%;
+                font-size: 40px;
+                line-height: 116.5%;
+                letter-spacing: 0.02em;
+                color: var(--black-clr);
+
+                @include mediaQuery(37.5rem) {
+                    & {
+                        width: 100%;
+                    }
+                }
+            }
+
+            > button {
+                display: flex;
+    
+                background: #414141;
+                color: #FFFFFF;
+                border-radius: 2px;
+
+                align-items: flex-start;
+                padding: 15.5px 30px;
+                gap: .9rem;
+
+                letter-spacing: 0.02em;
+                font-size: 15px;
+                line-height: 146.5%;
+
+                > svg {
+                    transform: translateX(0);
+                    transition:.5s transform ease;
+                }
+
+                &:hover {
+                    > svg {
+                        transform: translateX(1rem);
+                    }
+                }
+            }
+
+            @include mediaQuery(37.5rem) {
+                & {
+                    flex-direction: column;
+                    gap: 2rem;
+                    align-items: flex-start !important;
+                }
+            }
+        }
+
+        &_bottom {
+            width: 100%;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            place-items: center;
+            column-gap: 3rem;
+            
+            &-img {
+                position: relative;
+
+                width: 33rem;
+                height: 33.8rem;
+
+                &_content {
+                    width: 80%;
+
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start !important;
+                    gap: 1rem;
+
+                    background-color: var(--white-clr);
+                    border-radius: .5rem;
+                    padding: 2rem;
+
+                    transition: .5s all ease;
+
+                    > p {
+                        font-size: 15px;
+                        line-height: 22px;
+                        letter-spacing: 0.02em;
+                        color: #636363;
+
+                        > span {
+                            color: var(--accent-clr);
+                        }
+                    }
+
+                    > h2 {
+                        font-size: 18px;
+                        line-height: 150%;
+                        letter-spacing: 0.02em;
+                        color: #212E40;
+                    }
+
+                    > p, > h2 {
+                        transition: .5s color ease;
+                    }
+                }
+
+                &:hover {
+                    .arkimon__blog-container_bottom-img_content {
+                        top: 90%;
+                        background-color: var(--black-clr);
+
+                        > * {
+                            color: var(--white-clr);
+                        }
+                    }
+                }
+            }
+
+            @include mediaQuery(37.5rem) {
+                & {
+                    grid-template-columns: 1fr;
+                    column-gap: 0;
+                    row-gap: 10rem;
+                }
+            }
+        }
+    }
+}
